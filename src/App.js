@@ -1,28 +1,42 @@
-import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, {Component} from 'react';
 
-class App extends Component {
-  render() {
-    return (
-      <div className="App">
-        <header className="App-header">
-          <img src={"https://app.feedbackpanda.com/images/fbp_logo_circle.png"} className="App-logo" alt="logo" />
-          <p>
-            YOOO <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
-      </div>
-    );
+class counter extends Component {
+  constructor () {
+    super();
+    this.state = {
+      count: 0,
+    };
   }
-}
 
-export default App;
+
+
+increment = () => {
+  this.setState ({
+    count: this.state.count + 1,
+  })
+};
+
+
+decrement = () => {
+  this.setState ({
+    count: this.state.count - 1,
+  })
+};
+
+
+  render() {
+    return(
+      <div className="container">
+      <div className="navbar">Counter.js</div>
+      <div className="counter">
+      <h3><img src={"https://app.feedbackpanda.com/images/fbp_logo_circle.png"} /> </h3>
+      <h1>{this.state.count}</h1>
+      <button type="button" onClick={this.increment}> Increment </button>
+      <button type="button" onClick={this.decrement}> decrement </button>
+      </div>
+      </div>
+    )
+  }
+};
+
+export default counter;
